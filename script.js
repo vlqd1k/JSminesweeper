@@ -106,78 +106,10 @@ function saveScoreToLocalStorage(name, time) {
     localStorage.setItem('scores', JSON.stringify(scores));
 }
 function endGame() {
-    function endGame() {
-        // Отримайте ім'я гравця
-        const name = prompt('Enter your name:');
-
-        // Отримайте час гри
-        const endTime = new Date().getTime();
-        const time = (endTime - startTime) / 1000;
-
-        // Додайте результат гри до таблиці результатів та збережіть його в локальному сховищі
-        addScoreToScoreboard(name, time);
-        saveScoreToLocalStorage(name, time);
-
-        // Оновіть статистику на екрані
-        updateStats();
-    }
-    function updateStats() {
-        // Отримайте таблицю результатів
-        const scoreboard = document.getElementById('scoreboard');
-
-        // Очистіть таблицю результатів
-        scoreboard.querySelector('tbody').innerHTML = '';
-
-        // Отримайте результати з локального сховища
-        const scores = getScoresFromLocalStorage();
-
-        // Додайте кожен результат до таблиці результатів
-        scores.forEach((score, index) => {
-            addScoreToScoreboard(score.name, score.time);
-        });
-    }
-    function getScoresFromLocalStorage() {
-        const scores = localStorage.getItem('scores');
-
-        if (scores) {
-            return JSON.parse(scores);
-        }
-
-        return [];
-    }
-
-    function saveScoreToLocalStorage(name, time) {
-        const score = { name, time };
-        const scores = getScoresFromLocalStorage();
-
-        scores.push(score);
-
-        localStorage.setItem('scores', JSON.stringify(scores));
-    }
-    function getScoresFromLocalStorage() {
-        const scores = localStorage.getItem('scores');
-
-        if (scores) {
-            return JSON.parse(scores);
-        }
-
-        return [];
-    }
-
-    function saveScoreToLocalStorage(name, time) {
-        const score = { name, time };
-        const scores = getScoresFromLocalStorage();
-
-        scores.push(score);
-
-        localStorage.setItem('scores', JSON.stringify(scores));
-    }
-    const viewStatsButton = document.querySelector('#view-stats');
-
-    viewStatsButton.addEventListener('click', () => {
-        updateStats();
-    });
-
+    // Отримайте ім'я гравця та час
+    const name = prompt('Enter your name:');
+    const endTime = new Date();
+    const time = endTime.getTime() - startTime.getTime();
 
     // Додайте рекорд до таблиці результатів
     addScoreToScoreboard(name, time);
