@@ -105,19 +105,19 @@ function saveScoreToLocalStorage(name, time) {
     // Збережіть оновлений список результатів у локальному сховищі браузера
     localStorage.setItem('scores', JSON.stringify(scores));
 }
-function endGame() {
-    // Отримайте ім'я гравця та час
-    const name = prompt('Enter your name:');
-    const endTime = new Date();
-    const time = endTime.getTime() - startTime.getTime();
+    function endGame() {
+        // Отримайте ім'я гравця та час
+        const name = prompt('Enter your name:');
+        const endTime = new Date();
+        const time = endTime.getTime() - startTime.getTime();
 
-    // Додайте рекорд до таблиці результатів
-    addScoreToScoreboard(name, time);
-    // Очистіть дошку гри
-    boardElement.innerHTML = '';
-    // Перезапустіть гру
-    startGame();
-}
+        // Додайте рекорд до таблиці результатів
+        addScoreToScoreboard(name, time);
+        // Очистіть дошку гри
+        boardElement.innerHTML = '';
+        // Перезапустіть гру
+        startGame();
+    }
 
 
 // Додайте результат до таблиці результатів та збережіть його в локальному сховищі браузера
